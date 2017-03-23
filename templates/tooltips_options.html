@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Tooltips Options - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .myColor{
+ color:#00BFFF;   
+}    
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <h2>Tooltips with OPTIONS set in HTML <small>but initialized in JS</small></h2>    
+    <hr>
+    <a href="#" data-toggle="myToolTip" data-placement="top" title="Default tooltip">Default Tooltip (basic)</a>
+    <hr>
+    <a href="#" data-toggle="myToolTip" data-placement="top" data-delay='{"show":2000, "hide":3000}' title="Tooltip with BIG delay" >
+    Default Tooltip with 2 second delay and 3 second hide delay </a>
+    <hr>
+    <a href="#" data-toggle="myToolTip" data-placement="top"
+      data-template='<div class="myToolTip" role="tooltip"><div class="tooltip-arrow">arrow</div><div class="tooltip-inner">inner</div></div>'>
+    Tooltip with template NOT WORKING???</a>
+    <hr>
+    <a href="#" data-toggle="myToolTip" data-placement="top" data-html="true"  title="Fancy <b>tooltip<b>  <h4>tooltip<h4></a>">Tooltip contains HTML</a>
+    <hr>
+    <button type="button" class="btn btn-default" data-toggle="btnToolTip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+    <hr>
+    <button type="button" class="btn btn-default" data-toggle="btnToolTip" data-placement="right" data-trigger="click" title="Tooltip on right">Tooltip you must CLICK on</button>
+    <hr>
+    <h2>Tooltips with OPTIONS set in JS</h2>
+    <div>
+      <ul>
+    
+        <a href="#" class="tip-top" >   
+        <img title="<b class='myColor'>Gotta Catch Em All</b>" data-toggle="myToolTip" data-placement="top" data-html="true" src="http://i.imgur.com/ilMiata.jpg?1" /> 
+        <li><a href="#" class="tip-top" title="Tooltip on the top side">Tooltip on top</a> </li>
+        <li><a href="#" class="tip-right" title="Tooltip on the right side">Tooltip on right</a></li>
+        <li><a href="#" class="tip-bottom" title="Tooltip the on bottom side">Tooltip on bottom</a></li>
+        <li><a href="#" class="tip-left" title="<b class='myColor'>Tooltip</b> on the left <i>side</i> with <h2>HTML</h2>">
+          Tooltip on left with HTML set with JavaScript</a></li>
+        <li><a href="#" class="tip-auto" title="<b class='myColor'>Tooltip</b> set to auto <i>side</i> with <h2>HTML</h2>">
+          Tooltip set to auto  with HTML set with JavaScript</a></li>
+
+
+      </ul>
+    </div>
+    <br><br><br><br>
+  </div>
+</div>
+<script type="text/javascript">
+/*
+Tooltips can seem a little confusing, this example should clarify
+
+For performance reasons, the Tooltip and Popover data-apis are opt-in,
+meaning you MUST initialize them yourself via JavaScript.
+
+Ref: http://getbootstrap.com/javascript/#tooltips
+One way to initialize all tooltips on a page would be to select them by their "data-toggle" attribute:
+$(function () {
+  $('[data-toggle="myToolTip"]').tooltip()
+})
+
+Note: the "data-toggle" is in the HTML, like this:
+data-toggle="myToolTip"
+
+Tool tips may also be called by id or Class
+$('some id or class that you add to the above a tag').tooltip()
+
+Here is some JavaScript that does both, for a a link, and a button
+
+top | bottom | left | right | auto.
+When "auto" is specified, it will dynamically reorient the tooltip. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.
+
+*/
+
+$(document).ready(function(){
+
+// Method 1 - uses 'data-toggle' to initialize
+$('[data-toggle="myToolTip"]').tooltip();   
+
+/* - - - - - - - - - - - - - - - - - - - */
+
+// Method 2 - uses the id, class or native tag, could use .btn as class 
+
+$('button').tooltip();
+
+// options set in JS by class
+      $(".tip-top").tooltip({
+        placement : 'top'
+    });
+    
+    $(".tip-top").tooltip({
+        placement : 'top'
+    });
+    $(".tip-right").tooltip({
+        placement : 'right'
+    });
+    $(".tip-bottom").tooltip({
+        placement : 'bottom'
+    });
+    $(".tip-left").tooltip({
+        placement : 'left',
+        html : true
+    });
+
+    $(".tip-auto").tooltip({
+        placement : 'auto',
+        html : true
+    });
+
+});
+
+
+</script>
+</body>
+</html>
